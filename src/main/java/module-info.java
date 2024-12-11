@@ -4,6 +4,6 @@ module fr.twiloo.iut.kothep {
 
     requires com.almasb.fxgl.all;
 
-    opens fr.twiloo.iut.kothep to javafx.fxml;
-    exports fr.twiloo.iut.kothep;
+    opens fr.twiloo.iut.kothep.client to javafx.fxml;
+    exports fr.twiloo.iut.kothep.client;
 }
