@@ -6,7 +6,7 @@ module fr.twiloo.iut.kothep {
     requires java.desktop;
 
     exports fr.twiloo.iut.kothep;
-    opens resources.assets.textures;
-    opens resources.assets.sounds;
+    opens assets.textures;
+    opens assets.sounds;
     opens fr.twiloo.iut.kothep to javafx.fxml;
 }
