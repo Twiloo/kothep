@@ -5,6 +5,8 @@ module fr.twiloo.iut.kothep {
     requires com.almasb.fxgl.all;
     requires java.desktop;
 
-    opens fr.twiloo.iut.kothep to javafx.fxml;
     exports fr.twiloo.iut.kothep;
+    opens assets.textures;
+    opens assets.sounds;
+    opens fr.twiloo.iut.kothep to javafx.fxml;
 }
