@@ -1,5 +1,6 @@
 package fr.twiloo.iut.kothep.controller;
 
+import fr.twiloo.iut.kothep.common.model.dto.request.LoginUser;
 import fr.twiloo.iut.kothep.common.model.dto.request.RegisterUser;
 import fr.twiloo.iut.kothep.common.model.dto.response.User;
 import fr.twiloo.iut.kothep.service.UserService;
@@ -47,6 +48,18 @@ public class UserController {
             return userService.createFromRequest(registerUser)
                     .map(user -> new ResponseEntity<>(user.toDTO(), HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        } catch (InvalidPropertyException e) {
+            return new ResponseEntity<>(List.of(e.getMessage()), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> loginUser(
+            @RequestBody
+            @Valid
+            LoginUser loginUser) {
+        try {
+            return new ResponseEntity<>(userService.login(loginUser).toDTO(), HttpStatus.OK);
         } catch (InvalidPropertyException e) {
             return new ResponseEntity<>(List.of(e.getMessage()), HttpStatus.BAD_REQUEST);
         }
