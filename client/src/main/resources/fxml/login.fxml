@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #107de1; -fx-border-color: #fff; -fx-border-width: 5px; -fx-padding: 10;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.twiloo.iut.kothep.LoginController">
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <ImageView fx:id="logoImage" fitHeight="381.0" fitWidth="396.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/kothep.jpg" />
+         </ImageView>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="305.0" BorderPane.alignment="CENTER">
+         <Label layoutX="35.0" layoutY="111.0" text="Username" textFill="#fbc027">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <TextField fx:id="username" layoutX="120.0" layoutY="108.0" promptText="Username" />
+
+         <Label layoutX="37.0" layoutY="154.0" text="Password" textFill="#fbc027">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <PasswordField fx:id="password" layoutX="121.0" layoutY="151.0" promptText="Password" />
+
+         <Button fx:id="btn_login" layoutX="37.0" layoutY="205.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="234.0" style="-fx-background-color: #fbc027;" text="Sign in" textFill="#ed2061">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+
+         <Label layoutX="38.0" layoutY="315.0" text="Invalid username or password" textFill="#dd0000" />
+         <Button fx:id="btn_register" layoutX="37.0" layoutY="246.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="234.0" style="-fx-background-color: #fbc027;" text="Register now" textFill="#ed2061">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+      </AnchorPane>
+   </right>
+</BorderPane>
