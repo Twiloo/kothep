@@ -1,5 +1,7 @@
 package fr.twiloo.iut.kothep.service;
 
+import fr.twiloo.iut.kothep.PasswordEncoder;
+import fr.twiloo.iut.kothep.common.model.api.request.LoginUser;
 import fr.twiloo.iut.kothep.common.model.api.request.RegisterUser;
 import fr.twiloo.iut.kothep.entity.User;
 import fr.twiloo.iut.kothep.repository.UserRepository;
@@ -27,6 +29,11 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
+    @Transactional(readOnly = true)
+    public Optional<User> getUserByPseudo(String pseudo) {
+        return userRepository.findByPseudo(pseudo);
+    }
+
     @Transactional
     public Optional<User> createFromRequest(@Valid RegisterUser registerUser) throws InvalidPropertyException {
         if (!isPasswordValid(registerUser.password()))
@@ -38,6 +45,18 @@ public class UserService {
         User user = new User(registerUser.email(), registerUser.pseudo(), registerUser.password());
         userRepository.save(user);
         return Optional.of(user);
+    }
+
+    @Transactional
+    public User login(@Valid LoginUser loginUser) throws InvalidPropertyException {
+        User user = getUserByPseudo(loginUser.pseudo()).orElse(null);
+        if (user == null)
+            throw new InvalidPropertyException(User.class, "pseudo", "Player doesn't exist");
+
+        if (!PasswordEncoder.matchPassword(loginUser.password(), user.getPassword()))
+            throw new InvalidPropertyException(User.class, "password", "Password is incorrect");
+
+        return user;
     }
 
     private boolean isPasswordValid(String password) {
