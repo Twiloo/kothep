@@ -1,6 +1,6 @@
 package fr.twiloo.iut.kothep.service;
 
-import fr.twiloo.iut.kothep.common.model.dto.request.RegisterUser;
+import fr.twiloo.iut.kothep.common.model.api.request.RegisterUser;
 import fr.twiloo.iut.kothep.entity.User;
 import fr.twiloo.iut.kothep.repository.UserRepository;
 import jakarta.validation.Valid;

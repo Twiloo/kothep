@@ -1,6 +1,5 @@
 package fr.twiloo.iut.kothep;
 
-
 import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 
 final public class PasswordEncoder {

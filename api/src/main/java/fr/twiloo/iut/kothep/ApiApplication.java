@@ -1,7 +1,14 @@
 package fr.twiloo.iut.kothep;
 
+import io.swagger.v3.oas.models.media.ArraySchema;
+import io.swagger.v3.oas.models.media.Content;
+import io.swagger.v3.oas.models.media.MediaType;
+import io.swagger.v3.oas.models.media.StringSchema;
+import io.swagger.v3.oas.models.responses.ApiResponses;
+import io.swagger.v3.oas.models.responses.ApiResponse;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
+import org.springdoc.core.customizers.OpenApiCustomizer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
@@ -39,7 +46,8 @@ public class ApiApplication {
                     .csrf(AbstractHttpConfigurer::disable)
                     .httpBasic(AbstractHttpConfigurer::disable)
                     .authorizeHttpRequests(request -> request.anyRequest().permitAll())
-                    .build();        }
+                    .build();
+        }
     }
 
     @RestControllerAdvice
@@ -75,6 +83,26 @@ public class ApiApplication {
                     .collect(Collectors.toList());
 
             return new ResponseEntity<>(errorMessages, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @Configuration
+    public static class OpenApiConfig {
+
+        @Bean
+        public OpenApiCustomizer globalResponseCustomizer() {
+            return openApi -> openApi.getPaths().forEach((path, pathItem) -> pathItem.readOperations().forEach(operation -> {
+                ApiResponses responses = operation.getResponses()
+                        .addApiResponse("400", createBadRequestResponse());
+            }));
+        }
+
+        private ApiResponse createBadRequestResponse() {
+            return new ApiResponse()
+                    .description("Bad Request - list of errors")
+                    .content(new Content()
+                            .addMediaType(org.springframework.http.MediaType.APPLICATION_JSON_VALUE, new MediaType()
+                                    .schema(new ArraySchema().items(new StringSchema().example("Le champ 'email' est invalide.")))));
         }
     }
 }

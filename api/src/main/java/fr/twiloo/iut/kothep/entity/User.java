@@ -40,8 +40,8 @@ public class User {
         this.elo = (int) Config.BASE_ELO.value;
     }
 
-    public fr.twiloo.iut.kothep.common.model.dto.response.User toDTO() {
-        return new fr.twiloo.iut.kothep.common.model.dto.response.User(this.getId(), this.getEmail(), this.getPseudo(), this.getElo());
+    public fr.twiloo.iut.kothep.common.model.api.response.User toDTO() {
+        return new fr.twiloo.iut.kothep.common.model.api.response.User(this.getId(), this.getEmail(), this.getPseudo(), this.getElo());
     }
 
     public long getId() {

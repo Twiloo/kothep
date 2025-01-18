@@ -1,4 +1,4 @@
-package fr.twiloo.iut.kothep.common;
+package fr.twiloo.iut.kothep.common.model;
 
 /**
  * @param <C> content type

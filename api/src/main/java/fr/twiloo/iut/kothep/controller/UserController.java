@@ -1,8 +1,9 @@
 package fr.twiloo.iut.kothep.controller;
 
-import fr.twiloo.iut.kothep.common.model.dto.request.RegisterUser;
-import fr.twiloo.iut.kothep.common.model.dto.response.User;
+import fr.twiloo.iut.kothep.common.model.api.request.RegisterUser;
+import fr.twiloo.iut.kothep.common.model.api.response.User;
 import fr.twiloo.iut.kothep.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
@@ -19,6 +20,7 @@ import java.util.List;
 @RestController
 @Validated
 @RequestMapping("/user")
+@Tag(name = "Users", description = "Endpoints related to user login and registration")
 public class UserController {
 
     private final UserService userService;
