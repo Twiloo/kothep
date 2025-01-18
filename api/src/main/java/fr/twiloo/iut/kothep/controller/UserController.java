@@ -4,6 +4,10 @@ import fr.twiloo.iut.kothep.common.model.api.request.RegisterUser;
 import fr.twiloo.iut.kothep.common.model.api.response.User;
 import fr.twiloo.iut.kothep.common.model.api.request.LoginUser;
 import fr.twiloo.iut.kothep.service.UserService;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
@@ -32,6 +36,7 @@ public class UserController {
     }
 
     @GetMapping("/{email}")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = User.class)))})
     public ResponseEntity<User> getUserByEmail(
             @PathVariable("email")
             @NotNull @NotEmpty @Email
@@ -42,6 +47,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = User.class)))})
     public ResponseEntity<?> registerUser(
             @RequestBody
             @Valid
@@ -56,6 +62,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = User.class)))})
     public ResponseEntity<?> loginUser(
             @RequestBody
             @Valid
