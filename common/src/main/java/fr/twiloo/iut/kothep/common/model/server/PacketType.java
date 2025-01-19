@@ -1,10 +1,10 @@
-package fr.twiloo.iut.kothep.common.model;
+package fr.twiloo.iut.kothep.common.model.server;
 
 public enum PacketType {
-    ACTION_TICK(null),
-    GAME_START(null),
-    GAME_TICK(null),
-    GAME_END(null),
+    PLAYER_ACTION(PlayerActionPacket.class),
+    GAME_START(GameStart.class),
+    GAME_TICK(GameTick.class),
+    GAME_END(GameEnd.class),
     NEW_MESSAGE(null);
 
     private final Class<? extends GamePacket<?>> requestClass;
