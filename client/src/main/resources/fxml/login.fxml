@@ -8,7 +8,7 @@
 <BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #107de1; -fx-border-color: #fff; -fx-border-width: 5px; -fx-padding: 10;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.twiloo.iut.kothep.LoginController">
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <ImageView fx:id="logoImage" fitHeight="381.0" fitWidth="396.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="381.0" fitWidth="396.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../images/kothep.jpg" />
          </ImageView>
       </AnchorPane>
@@ -36,7 +36,16 @@
          </Button>
 
          <Label layoutX="38.0" layoutY="315.0" text="Invalid username or password" textFill="#dd0000" />
-         <Button fx:id="btn_register" layoutX="37.0" layoutY="246.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="234.0" style="-fx-background-color: #fbc027;" text="Register now" textFill="#ed2061">
+         <Button
+                 fx:id="btn_register"
+                 layoutX="37.0"
+                 layoutY="246.0"
+                 mnemonicParsing="false"
+                 prefHeight="17.0"
+                 prefWidth="234.0"
+                 style="-fx-background-color: #fbc027;"
+                 text="Register now" textFill="#ed2061"
+                 onAction="#goToRegister">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
