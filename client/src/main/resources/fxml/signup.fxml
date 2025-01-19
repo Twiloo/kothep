@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #107de1; -fx-border-color: #fff; -fx-border-width: 5px; -fx-padding: 10;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.twiloo.iut.kothep.SignupController">
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <ImageView fitHeight="381.0" fitWidth="396.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/kothep.jpg" />
+         </ImageView>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="305.0" BorderPane.alignment="CENTER">
+         <Label layoutX="35.0" layoutY="112.0" text="Username" textFill="#fbc027">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <TextField fx:id="username" layoutX="120.0" layoutY="109.0" promptText="Username" />
+         <Label layoutX="35.0" layoutY="154.0" text="E-mail" textFill="#fbc027">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <TextField fx:id="email" layoutX="120.0" layoutY="151.0" promptText="E-mail address" />
+         <Label layoutX="37.0" layoutY="197.0" text="Password" textFill="#fbc027">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+         <PasswordField fx:id="password" layoutX="121.0" layoutY="194.0" promptText="Password" />
+         <Button fx:id="btn_signup" layoutX="37.0" layoutY="246.0" mnemonicParsing="false" onAction="#signup" prefHeight="17.0" prefWidth="234.0" style="-fx-background-color: #fbc027;" text="Sign up" textFill="#ed2061">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+         <Button fx:id="btn_backtologin" layoutX="37.0" layoutY="282.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="234.0" style="-fx-background-color: none;" text="Back to log in" textFill="WHITE" underline="true">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Button>
+         <Label fx:id="errorMessage" layoutX="38.0" layoutY="315.0" text="" textFill="#dd0000" />
+         <Label fx:id="outMessage" layoutX="38.0" layoutY="315.0" text="" textFill="#00ff34">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></Label>
+      </AnchorPane>
+   </right>
+</BorderPane>
