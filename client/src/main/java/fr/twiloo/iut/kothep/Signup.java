@@ -26,6 +26,8 @@ public class Signup extends Application {
         }
     }
 
+
+
     public static void main(String[] args) {
         launch(args);
     }
